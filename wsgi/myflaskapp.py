@@ -49,7 +49,7 @@ def crossdomain(origin=None, methods=None, headers=None,
 @app.route("/")
 @crossdomain(origin='*')
 def hello():
-    msg = {'message': 'hello world'}
+    msg = {'message': 'stoked'}
     return jsonify(**msg)
 
 if __name__ == "__main__":
