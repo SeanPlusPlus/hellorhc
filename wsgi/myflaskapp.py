@@ -5,12 +5,6 @@ from functools import update_wrapper
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True
 
-@app.route("/")
-@crossdomain(origin='*')
-def hello():
-    msg = {'message': 'hello world'}
-    return jsonify(**msg)
-
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
                 automatic_options=True):
@@ -51,6 +45,12 @@ def crossdomain(origin=None, methods=None, headers=None,
         f.provide_automatic_options = False
         return update_wrapper(wrapped_function, f)
     return decorator
+
+@app.route("/")
+@crossdomain(origin='*')
+def hello():
+    msg = {'message': 'hello world'}
+    return jsonify(**msg)
 
 if __name__ == "__main__":
     app.run()
