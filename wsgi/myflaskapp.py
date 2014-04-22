@@ -5,7 +5,7 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 @app.route("/")
 def hello():
     msg = {'message': 'hello world'}
-    return flask.jsonify(**msg)
+    return jsonify(**msg)
 
 if __name__ == "__main__":
     app.run()
